@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "testing-fire-6a0e7": {
+      "hosting": {
+        "operator-web": [
+          "testing-fire-6a0e7"
+        ]
+      }
+    }
+  }
+}
