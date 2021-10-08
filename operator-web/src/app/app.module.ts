@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { CollectionComponent } from './collection/collection.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CollectionComponent
   ],
   imports: [
     BrowserModule,
