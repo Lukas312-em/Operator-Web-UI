@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { Observable, Subscription } from 'rxjs';
-import { interval, fromEvent } from 'rxjs';
+import { Observable, pipe, Subscription } from 'rxjs';
+import { interval, fromEvent, of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-collection',
@@ -14,7 +16,9 @@ export class CollectionComponent implements OnInit {
   collection: any;
   sub: Subscription | undefined;
   wrapperElement: any;
-  constructor(firestore: Firestore) {
+
+
+  constructor() {
 
   }
 
@@ -38,7 +42,16 @@ export class CollectionComponent implements OnInit {
     const subscribe = hover.subscribe(evt => {
       console.log(`Coords: ${evt.clientX} X ${evt.clientY}`);
     });
+    const nums = of(1, 2, 3, 4, 5);
+
+    const squre = pipe(
+      map((n: number) => n * n),
+      filter(n => n % 2 == 0)
+    );
 
 
+    const squareNums = squre(nums);
+
+    squareNums.subscribe(y => console.log(y));
   }
 }
